@@ -15,8 +15,9 @@ public class DeleteReader {
 		try {
 			return Integer.parseInt(this.deleteReader.nextLine());
 		}catch(NumberFormatException ex) {
-			System.out.println("入力値が不正です。");
-			throw ex;
+			System.out.println("入力値が不正です。" + ex);
+			//throw ex;
+			return null ;
 		}
 	}
 	

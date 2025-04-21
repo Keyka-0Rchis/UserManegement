@@ -38,7 +38,7 @@ public class NumberManeger {
 		}
 		try(BufferedReader br = new BufferedReader(new FileReader(file))){
 			String line = br.readLine();
-			//readLineは一回使うごとに一行使い捨ててしまう。
+			//readLineは一回使うごとに一行使い捨ててしまう。ここで一括取得しておく。
 			if (line != null){
 				try {
 					newID = Integer.parseInt(line);

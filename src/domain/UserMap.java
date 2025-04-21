@@ -26,13 +26,18 @@ public class UserMap {
 	
 	//ユーザー削除メソッド
 	public void DeleteUser(Integer deleteID) {
-		UserData userdata = usermap.get(deleteID);
-		if (userdata != null) {
-			usermap.remove(deleteID);
-			userdata = null;
-			//=nullにするとあらゆるところからの参照がなくなる=>javaが勝手に消してくれる（かしこい）
+		if(deleteID != null) {
+			UserData userdata = usermap.get(deleteID);
+			if (userdata != null) {
+				usermap.remove(deleteID);
+				userdata = null;
+				//=nullにするとあらゆるところからの参照がなくなる=>javaが勝手に消してくれる（かしこい）
+				System.out.println("ユーザーが削除されました。");
+			}else {
+				System.out.println("該当するデータがありません。");
+			}
 		}else {
-			System.out.println("該当するデータがありません。");
+			System.out.println("ユーザーIDが不正です。");
 		}
 	}
 	
@@ -46,11 +51,15 @@ public class UserMap {
 	//}
 	////ストリームを使う
 	public void ViewUser() {
-		this.usermap.entrySet()
-					.stream()
-					.forEach(
-							entry -> System.out.println("ユーザーID:" + entry.getKey() + " ユーザー名:" + entry.getValue().GetName() + " メールアドレス:" +  entry.getValue().GetEmail())
-							);
+		if (this.usermap.size() != 0) {
+			this.usermap.entrySet()
+						.stream()
+						.forEach(
+								entry -> System.out.println("ユーザーID:" + entry.getKey() + " ユーザー名:" + entry.getValue().GetName() + " メールアドレス:" +  entry.getValue().GetEmail())
+								);
+		}else {
+			System.out.println("登録されているユーザーがありません。");
+		}
 	}
 	
 	public void SaveMap() {
