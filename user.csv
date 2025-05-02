@@ -1,0 +1,5 @@
+userid,username,email,isExist
+1,keyka,keyka@,true
+2,orchis,orchis@,false
+3,tom,tom@,false
+4,tom,tom2@,true

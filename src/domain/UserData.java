@@ -2,20 +2,29 @@ package domain;
 
 public class UserData {
 	
-	private String username;
-	private String email;
+	private String userName;
+	private String eMail;
+	private boolean exist;
 	
-	public UserData(String username,String email) {
-		this.username = username;
-		this.email = email;
+	public UserData(String userName,String eMail,boolean exist) {
+		this.userName = userName;
+		this.eMail = eMail;
+		this.exist = exist;
 	}
 	
-	public String GetName() {
-		return username;
+	public String getName() {
+		return userName;
 	}
 	
-	public String GetEmail() {
-		return email;
+	public String getEmail() {
+		return eMail;
 	}
 	
+	public boolean userExist() {
+		return exist;
+	}
+	
+	public void setExist(boolean existFlag) {
+		exist = existFlag;
+	}
 }

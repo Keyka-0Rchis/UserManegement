@@ -1,4 +1,4 @@
-package repository;
+package presentation;
 
 import java.util.Scanner;
 
